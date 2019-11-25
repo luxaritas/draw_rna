@@ -1,4 +1,5 @@
-import draw_rna as d
+from __future__ import absolute_import, division, print_function
+from . import draw_rna as d
 import argparse
 import sys
 import os

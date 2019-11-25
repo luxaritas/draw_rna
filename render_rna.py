@@ -1,5 +1,6 @@
+from __future__ import absolute_import, division, print_function
 import sys
-import svg
+from . import svg
 import re
 import random
 import math

@@ -1,6 +1,7 @@
-import render_rna_flip as render_rna
-import svg
-import inv_utils
+from __future__ import absolute_import, division, print_function
+from . import render_rna_flip as render_rna
+from . import svg
+from . import inv_utils
 import argparse
 import re
 from matplotlib import cm

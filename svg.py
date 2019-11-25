@@ -1,5 +1,7 @@
 """Methods for outputting SVG files."""
 
+from __future__ import absolute_import, division, print_function
+
 def convert_color(color):
 	"""Converts a color object (be it touple-like, or string to an SVG-readable color string)."""
 	if type(color) == str:
