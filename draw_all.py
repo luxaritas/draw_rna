@@ -27,7 +27,7 @@ def main():
                     seq = next(f).strip()
                     secstruct = next(f).strip()
                 except Exception as e:
-                    print e
+                    print(e)
                     raise ValueError('improper format')
     
                 try:
@@ -35,7 +35,7 @@ def main():
                 except:
                     col = None
     
-                print 'drawing %s' % name
+                print('drawing %s' % name)
                 if col:
                     d.draw_rna(seq, secstruct, col, name, line=args.line)
                 else:
