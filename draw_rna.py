@@ -32,7 +32,7 @@ COLORS = {#"r": [255, 0, 0],
           #"i": [0, 204, 153],
           #"h": [46, 184, 46]}
 
-def draw_rna(sequence, secstruct, colors, filename="secstruct", line=False):
+def draw_rna(sequence, secstruct, colors, filename="secstruct", line=False, square=True):
     r = render_rna.RNARenderer()
 
     pairmap = render_rna.get_pairmap_from_secstruct(secstruct)
@@ -56,7 +56,10 @@ def draw_rna(sequence, secstruct, colors, filename="secstruct", line=False):
     except:
         colors = [COLORS[x] for x in list(colors)]
 
-    svgobj = svg.svg("%s.svg" % filename, cell_size, cell_size)
+    width = cell_size if square else size[0]
+    height = cell_size if square else size[1]
+
+    svgobj = svg.svg("%s.svg" % filename, width, height)
     r.draw(svgobj, CELL_PADDING, CELL_PADDING, colors, pairs, sequence, RENDER_IN_LETTERS, line)
 
 def parse_colors(color_string):
