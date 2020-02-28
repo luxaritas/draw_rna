@@ -1,5 +1,5 @@
 from __future__ import absolute_import, division, print_function
-from . import render_rna_flip as render_rna
+from . import render_rna
 from . import svg
 from . import inv_utils
 import argparse
@@ -32,7 +32,7 @@ COLORS = {#"r": [255, 0, 0],
           #"i": [0, 204, 153],
           #"h": [46, 184, 46]}
 
-def draw_rna(sequence, secstruct, colors, filename="secstruct", line=False, square=True):
+def draw_rna(sequence, secstruct, colors, filename="secstruct", line=False, square=True, flipped=True):
     r = render_rna.RNARenderer()
 
     pairmap = render_rna.get_pairmap_from_secstruct(secstruct)
@@ -40,7 +40,7 @@ def draw_rna(sequence, secstruct, colors, filename="secstruct", line=False, squa
     for i in range(len(pairmap)):
         if pairmap[i] > i:
             pairs.append({"from":i, "to":pairmap[i], "p":1.0, "color":COLORS["e"]})
-    r.setup_tree(secstruct, NODE_R, PRIMARY_SPACE, PAIR_SPACE)
+    r.setup_tree(secstruct, NODE_R, PRIMARY_SPACE, PAIR_SPACE, False)
     size = r.get_size()
 
     cell_size = max(size) + CELL_PADDING * 2
